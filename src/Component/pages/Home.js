@@ -10,10 +10,17 @@ const [blogs, setBlogs] = useState([
     { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'Snake Eye', id: 3}
 ]); 
 
+const handleDelete = (id) => {
+    const newBlogs = blogs.filter(blog => blog.id !== id);
+    setBlogs(newBlogs);
+}
+
     return (  
         <div className="home">
-            <BlogList blogs={blogs} title="All Blogs!" /> 
-            <BlogList blogs={blogs.filter((blog) => blog.author === 'Snake Eye' )} title="Snake Eyes Blogs" /> 
+            <BlogList blogs={blogs} title="All Blogs!" handleDelete = {handleDelete}  /> 
+
+            {/* This bottom create a filter for the blog  */}
+            {/* <BlogList blogs={blogs.filter((blog) => blog.author === 'Snake Eye' )} title="Snake Eyes Blogs" />  */}
         </div>
     );
 }
