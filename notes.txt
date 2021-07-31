@@ -1,2 +1,7 @@
-Rewatch chapter 13 { Function as Props }
+ chapter 13 { Function as Props }
 https://www.youtube.com/watch?v=CWEOYFzgOJs&list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d&index=13
+
+
+Chapter 15  { useEffect Dependencies}
+https://www.youtube.com/watch?v=jQc_bTFZ5_I&list=PL4cUxeGkcC9gZD-Tvwfod2gaISzfRiP9d&index=15
+    - only rerender when an info on screen is change 
