@@ -12,6 +12,10 @@ const [isPending, setIsPending] = useState(true);
 useEffect(() => {
     fetch('http://localhost:8000/blogs')
     .then(res => {
+        // if connect to server but cannot get data will throw error
+        if(!res.ok) {
+            throw Error('could not fetch the data for that resource')
+        }
         return res.json();
     })
     .then(data => {
