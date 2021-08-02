@@ -6,11 +6,12 @@ const  Home = () => {
 
 const [blogs, setBlogs] = useState(null); 
 const [isPending, setIsPending] = useState(true);
+const [error, setError ] =useState(null);
 
 
 
 useEffect(() => {
-    fetch('http://localhost:8000/blogs')
+    fetch('http://localhost:8000/blogss')
     .then(res => {
         // if connect to server but cannot get data will throw error
         if(!res.ok) {
@@ -23,12 +24,13 @@ useEffect(() => {
         setIsPending(false);
     })
     .catch(err => {
-        console.log(err.message);
+        setError(err.message);
     })
     }, []);
 
     return (  
         <div className="home">
+            { error && <div> { error } </div>}
             {isPending && <div> Loading... </div> }
             {blogs && <BlogList blogs={blogs} title="All Blogs!"  /> }
         </div>
