@@ -11,7 +11,7 @@ const [error, setError ] =useState(null);
 
 
 useEffect(() => {
-    fetch('http://localhost:8000/blogss')
+    fetch('http://localhost:8000/blogs')
     .then(res => {
         // if connect to server but cannot get data will throw error
         if(!res.ok) {
