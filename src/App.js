@@ -17,6 +17,7 @@ function App() {
            <Route path="/create"> 
               <Create />
            </Route>
+           {/* the id can be any name  */}
            <Route path="/blogs/:id"> 
               <BlogDetails />
            </Route>
