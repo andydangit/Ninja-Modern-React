@@ -6,10 +6,14 @@ const Create = () => {
 const [title, setTitle] = useState('');
 const [body, setBody] = useState('');
 const [author, setAuthor] = useState('mario');
+const [isPending, setIsPending] = useState(false);  //set to false so it does not load right away
 
 const handleSubmit = (e) => {
     e.preventDefault() // this prevent from remove the info when select submit
     const blog= {title, body, author };
+
+    setIsPending(true);
+
 
     fetch('http://localhost:8000/blogs', {
         method: "POST",
@@ -17,6 +21,7 @@ const handleSubmit = (e) => {
         body: JSON.stringify(blog)
     }).then (() => {
         console.log("new blog added");
+        setIsPending(false)
     })
 }
     
@@ -44,9 +49,12 @@ const handleSubmit = (e) => {
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)} 
                     <option value="mario"> Mario</option>
+                    <option value="andy"> Andy</option>
                     <option value="yoshi"> Yoshi</option>
                 </select>
-                <button> Add Blog </button>
+                { !isPending && <button> Add Blog </button>}
+                { isPending && <button disabled> Adding Blog... </button>}
+                
                 {/* bottom will show the updated title  */}
                 {/* <p> {title } </p>
                 <p> {body} </p>
