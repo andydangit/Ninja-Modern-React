@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 
 const Create = () => {
 const [title, setTitle] = useState('');
+const [body, setBody] = useState('');
 
 
     return ( 
@@ -21,8 +22,10 @@ const [title, setTitle] = useState('');
                 />
                 <label>Blog body:</label>
                 <textarea 
-                required>
-                </textarea>
+                required
+                    value={body}
+                    onChange={(e) => setBody(e.target.value)}
+                ></textarea>
                 <label> Blog author: </label>
                 <select> 
                     <option value="mario"> Mario</option>
@@ -31,6 +34,7 @@ const [title, setTitle] = useState('');
                 <button> Add Blog </button>
                 {/* bottom will show the updated title  */}
                 <p> {title } </p>
+                <p> {body} </p>
             </form>
         </div>
      );
