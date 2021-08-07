@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { useHistory } from 'react-router';
 
 
 const Create = () => {
@@ -7,6 +7,7 @@ const [title, setTitle] = useState('');
 const [body, setBody] = useState('');
 const [author, setAuthor] = useState('mario');
 const [isPending, setIsPending] = useState(false);  //set to false so it does not load right away
+const history = useHistory();
 
 const handleSubmit = (e) => {
     e.preventDefault() // this prevent from remove the info when select submit
@@ -22,7 +23,11 @@ const handleSubmit = (e) => {
     }).then (() => {
         console.log("new blog added");
         setIsPending(false)
+        // history.go(-1); this go back one page
+        history.push('/')
     })
+
+
 }
     
 
