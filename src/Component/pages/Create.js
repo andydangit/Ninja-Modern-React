@@ -7,6 +7,8 @@ import React, { useState } from 'react';
 const Create = () => {
 const [title, setTitle] = useState('');
 const [body, setBody] = useState('');
+const [author, setAuthor] = useState('mario');
+
 
 
     return ( 
@@ -27,7 +29,9 @@ const [body, setBody] = useState('');
                     onChange={(e) => setBody(e.target.value)}
                 ></textarea>
                 <label> Blog author: </label>
-                <select> 
+                <select>
+                value={author}
+                onChange={(e) => setAuthor(e.target.value)} 
                     <option value="mario"> Mario</option>
                     <option value="yoshi"> Yoshi</option>
                 </select>
@@ -35,6 +39,7 @@ const [body, setBody] = useState('');
                 {/* bottom will show the updated title  */}
                 <p> {title } </p>
                 <p> {body} </p>
+                <p> {author} </p>
             </form>
         </div>
      );
